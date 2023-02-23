@@ -27,7 +27,7 @@ SemanticMapManager::SemanticMapManager(
 }
 
 /*
-[steve add]更新语义地图，包括
+[steve add] 更新语义地图，包括
 1. 自车信息
 2. 完整道路信息以及周边道路信息
 3. 障碍物的删格地图以及障碍物空间
