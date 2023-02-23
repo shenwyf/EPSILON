@@ -45,6 +45,7 @@ void RosAdapter::ArenaInfoDynamicCallback(
       *msg, &time_stamp, &vehicle_set_);
 
   if (get_arena_info_static_) {
+    // [steve add] 计算所有后续用到的输入信息，存储在SemanticMapManager结构体里
     p_data_renderer_->Render(time_stamp.toSec(), lane_net_, vehicle_set_,
                              obstacle_set_);
     if (has_callback_binded_) {

@@ -34,12 +34,14 @@ class OnLaneFsPredictor {
     common::StateTransformer stf = common::StateTransformer(lane);
     for (int i = 0; i < num_step; ++i) {
       if (lane.IsValid()) {
+        // [steve add] 有道路约束的预测
         if (planning::OnLaneForwardSimulation::PropagateOnce(
                 stf, v_in, common::Vehicle(), t_step, sim_param,
                 &desired_state) != kSuccess) {
           return kWrongStatus;
         }
       } else {
+        // [steve add] 纯运动学模型预测
         if (planning::OnLaneForwardSimulation::PropagateOnce(
                 desired_vel, v_in, t_step,
                 planning::OnLaneForwardSimulation::Param(),

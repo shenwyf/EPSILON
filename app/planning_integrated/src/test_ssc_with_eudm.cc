@@ -6,11 +6,12 @@
  * @date 2019-02
  * @copyright Copyright (c) 2019
  */
-#include <ros/ros.h>
 #include <stdlib.h>
 
 #include <chrono>
 #include <iostream>
+
+#include <ros/ros.h>
 
 #include "eudm_planner/eudm_server_ros.h"
 #include "semantic_map_manager/data_renderer.h"
@@ -84,6 +85,7 @@ int main(int argc, char** argv) {
 
   p_bp_server_->Init(bp_config_path);
   p_ssc_server_->Init(ssc_config_path);
+  // [steve add] subscribe surrouding (static and dynamic)
   smm_ros_adapter.Init();
 
   p_bp_server_->Start();
